@@ -19,9 +19,8 @@
   <ItemGroup>
     <Folder Include="Application\" />
     <Folder Include="Migrations\" />
-    <Folder Include="Presentation\Controllers\" />
     <Folder Include="Infrastructure\" />
-    <Folder Include="Presentation\" />
+    <Folder Include="Presentation\Controllers\" />
   </ItemGroup>
 
 </Project>
