@@ -21,6 +21,10 @@ namespace JobApplicationTrackerApi.Persistence
                 .HasKey(j => j.Id);
 
             modelBuilder.Entity<JobApplication>()
+                .Property(e => e.Salary)
+                .HasColumnType("decimal(18, 2)");
+
+            modelBuilder.Entity<JobApplication>()
                 .HasOne(j => j.User)
                 .WithMany(u => u.JobApplications)
                 .HasForeignKey(j => j.UserId)

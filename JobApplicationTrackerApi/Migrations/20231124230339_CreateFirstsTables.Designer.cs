@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace JobApplicationTrackerApi.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20231123010126_CreateFirstsTables")]
+    [Migration("20231124230339_CreateFirstsTables")]
     partial class CreateFirstsTables
     {
         /// <inheritdoc />
@@ -60,7 +60,7 @@ namespace JobApplicationTrackerApi.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("Salary")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("decimal(18, 2)");
 
                     b.Property<int>("StatusId")
                         .HasColumnType("int");
