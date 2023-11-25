@@ -1,6 +1,7 @@
 ﻿using JobApplicationTrackerApi.Domain;
 using JobApplicationTrackerApi.Infrastructure.Interfaces;
 using JobApplicationTrackerApi.Persistence;
+using JobApplicationTrackerApi.Presentation.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace NomeDoSeuProjeto.Infrastructure
@@ -24,15 +25,24 @@ namespace NomeDoSeuProjeto.Infrastructure
             return _context.Users.Find(userId);
         }
 
-        public void AddUser(User user)
+        public int AddUser(UserInputModel UserInputModel)
         {
-            _context.Users.Add(user);
+            var newUser = new User(
+                UserInputModel.Name,
+                UserInputModel.Lastname,
+                UserInputModel.Email,
+                UserInputModel.Password
+                );
+
+            _context.Users.Add(newUser);
             _context.SaveChanges();
+
+            return newUser.Id;
         }
 
-        public void UpdateUser(User user)
+        public void UpdateUser(User UserUpdateModel)
         {
-            _context.Entry(user).State = EntityState.Modified;
+            _context.Entry(UserUpdateModel).State = EntityState.Modified;
             _context.SaveChanges();
         }
 

@@ -1,6 +1,7 @@
 ﻿using JobApplicationTrackerApi.Domain;
 using Microsoft.AspNetCore.Mvc;
 using JobApplicationTrackerApi.Infrastructure.Interfaces;
+using JobApplicationTrackerApi.Presentation.Models;
 
 namespace JobApplicationTrackerApi.Presentation.Controllers
 {
@@ -36,10 +37,10 @@ namespace JobApplicationTrackerApi.Presentation.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddUser([FromBody] User user)
+        public IActionResult AddUser([FromBody] UserInputModel user)
         {
-            _userRepository.AddUser(user);
-            return CreatedAtAction(nameof(GetUserById), new { id = user.Id }, user);
+            var userId = _userRepository.AddUser(user);
+            return CreatedAtAction(nameof(GetUserById), new { id = userId }, user);
         }
 
         [HttpPut("{id}")]

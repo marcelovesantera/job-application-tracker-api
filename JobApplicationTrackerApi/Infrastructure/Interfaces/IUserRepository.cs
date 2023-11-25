@@ -1,4 +1,5 @@
 ﻿using JobApplicationTrackerApi.Domain;
+using JobApplicationTrackerApi.Presentation.Models;
 
 namespace JobApplicationTrackerApi.Infrastructure.Interfaces
 {
@@ -6,7 +7,7 @@ namespace JobApplicationTrackerApi.Infrastructure.Interfaces
     {
         List<User> GetAllUsers();
         User GetUserById(int userId);
-        void AddUser(User user);
+        int AddUser(UserInputModel user);
         void UpdateUser(User user);
         void DeleteUser(int userId);
     }
