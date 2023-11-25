@@ -22,10 +22,13 @@
         public bool IsActive { get; set; }
         public List<JobApplication>? JobApplications { get; set; }
 
-
-        private void DeactiveUser()
+        public void Deactivate()
         {
-
+            if ((bool)IsActive)
+            {
+                IsActive = false;
+                UpdatedAt = DateTime.Now;
+            }
         }
     }
 }

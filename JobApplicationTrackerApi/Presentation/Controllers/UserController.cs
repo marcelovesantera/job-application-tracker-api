@@ -1,6 +1,6 @@
 ﻿using JobApplicationTrackerApi.Domain;
-using JobApplicationTrackerApi.Infrastructure.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using JobApplicationTrackerApi.Infrastructure.Interfaces;
 
 namespace JobApplicationTrackerApi.Presentation.Controllers
 {

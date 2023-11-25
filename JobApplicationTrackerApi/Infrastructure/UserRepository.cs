@@ -41,7 +41,8 @@ namespace NomeDoSeuProjeto.Infrastructure
             var user = _context.Users.Find(userId);
             if (user != null)
             {
-                _context.Users.Remove(user);
+                user.Deactivate();
+                _context.Entry(user).State = EntityState.Modified;
                 _context.SaveChanges();
             }
         }

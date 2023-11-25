@@ -41,7 +41,8 @@ namespace JobApplicationTrackerApi.Infrastructure
             var jobApplication = _context.JobApplications.Find(jobId);
             if (jobApplication != null)
             {
-                _context.JobApplications.Remove(jobApplication);
+                jobApplication.Deactivate();
+                _context.Entry(jobApplication).State = EntityState.Modified;
                 _context.SaveChanges();
             }
         }

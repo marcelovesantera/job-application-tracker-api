@@ -2,7 +2,7 @@
 {
     public class JobApplication
     {
-        public JobApplication(string position, string company, decimal salary, string link, string platform, string contact, int phaseId, int statusId, DateTime applicationDate)
+        public JobApplication(string position, string company, decimal salary, string link, string platform, string contact, int phaseId, int statusId, DateTime applicationDate, bool IsActive)
         {
             Position = position;
             Company = company;
@@ -13,6 +13,7 @@
             PhaseId = phaseId;
             StatusId = statusId;
             ApplicationDate = applicationDate;
+            IsActive = true;
         }
 
         public int Id { get; set; }
@@ -30,5 +31,15 @@
         public JobApplicationStatus? Status { get; set; }
         public DateTime ApplicationDate { get; set; }
         public DateTime UpdatedAt { get; set; }
+        public bool IsActive { get; set; }
+
+        public void Deactivate()
+        {
+            if ((bool)IsActive)
+            {
+                IsActive = false;
+                UpdatedAt = DateTime.Now;
+            }
+        }
     }
 }
