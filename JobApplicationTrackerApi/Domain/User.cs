@@ -2,7 +2,7 @@
 {
     public class User
     {
-        public User(string name, string lastname, string email, string password, DateTime createdAt, bool isActive)
+        public User(string name, string lastname, string email, string password)
         {
             Name = name;
             Lastname = lastname;
@@ -21,5 +21,11 @@
         public DateTime UpdatedAt { get; set; }
         public bool IsActive { get; set; }
         public List<JobApplication>? JobApplications { get; set; }
+
+
+        private void DeactiveUser()
+        {
+
+        }
     }
 }
